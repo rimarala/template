@@ -15,8 +15,7 @@ class PostGenProjectHook(object):
     github_repos_url = "https://api.github.com/orgs/EVOLVED-5G/repos"
     git_my_token = "{{cookiecutter.token_repo}}" 
     head = {'Authorization': 'token {}'.format(git_my_token)}
-    #payload_create_repo = {"name": "{{cookiecutter.repo_name}}", "public": "true"}
-    payload_create_repo1 = {"name": "{{cookiecutter.repo_name1}}", "public": "true"}
+    payload_create_repo = {"name": "{{cookiecutter.repo_name}}", "public": "true"}
     remote_message_base = "Also see: https://{}/{}/{}"
     success_message_base = "\n\nSuccess! Your project was created here:\n{}\n{}\n"
     repo_dirpath = os.getcwd()
@@ -24,8 +23,7 @@ class PostGenProjectHook(object):
         repo_dirpath, "cookiecutter.json"
     )
     raw_repo_name_dirpath = os.path.join(
-        #repo_dirpath, "{% raw %}{{cookiecutter.repo_name}}{% endraw %}"
-        repo_dirpath, "{% raw %}{{cookiecutter.repo_name1}}{% endraw %}"
+        repo_dirpath, "{% raw %}{{cookiecutter.repo_name}}{% endraw %}"
     )
     hooks_dirpath = os.path.join(repo_dirpath, "hooks")
 
@@ -51,8 +49,7 @@ class PostGenProjectHook(object):
         """
         Creates a remote repo 
         """
-        #r = requests.post(self.github_repos_url,headers=self.head, json=self.payload_create_repo)
-        r = requests.post(self.github_repos_url,headers=self.head, json=self.payload_create_repo1)
+        r = requests.post(self.github_repos_url,headers=self.head, json=self.payload_create_repo)
         print("Repository created", r)
 
 
