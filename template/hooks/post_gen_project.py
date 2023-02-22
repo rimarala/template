@@ -25,13 +25,16 @@ class PostGenProjectHook(object):
     raw_repo_name_dirpath = os.path.join(
         repo_dirpath, "{% raw %}{{cookiecutter.repo_name}}{% endraw %}"
     )
+    print (repo_dirpath)
     hooks_dirpath = os.path.join(repo_dirpath, "hooks")
+    print (hooks_dirpath)
 
     def __init__(self, *args, **kwargs):
         """
         Initializes the class instance.
         """
         self.result = self._get_cookiecutter_result()
+        print (self.result)
         self.git_ignore = self.result.get("git_ignore")
         self.make_dirs = self.result.get("make_dirs")
         self.remote_provider = "github.com"
@@ -93,6 +96,7 @@ class PostGenProjectHook(object):
             with open(json_filepath) as f:
                 for k, v in json.loads(f.read()).items():
                     result[k] = v
+                    print (result[k])
                     if isinstance(v, list):
                         result[k] = v[0]
         return result
