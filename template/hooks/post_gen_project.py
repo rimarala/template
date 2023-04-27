@@ -16,6 +16,7 @@ class PostGenProjectHook(object):
     git_my_token = "{{cookiecutter.token_repo}}" 
     head = {'Authorization': 'token {}'.format(git_my_token)}
     payload_create_repo = {"name": "{{cookiecutter.repo_name}}", "public": "true"}
+    print (payload_create_repo)
     remote_message_base = "Also see: https://{}/{}/{}"
     success_message_base = "\n\nSuccess! Your project was created here:\n{}\n{}\n"
     repo_dirpath = os.getcwd()
@@ -26,6 +27,8 @@ class PostGenProjectHook(object):
         repo_dirpath, "{% raw %}{{cookiecutter.repo_name}}{% endraw %}"
     )
     hooks_dirpath = os.path.join(repo_dirpath, "hooks")
+    print (repo_dirpath)
+    print (hooks_dirpath)
 
     def __init__(self, *args, **kwargs):
         """
@@ -95,6 +98,7 @@ class PostGenProjectHook(object):
                     result[k] = v
                     if isinstance(v, list):
                         result[k] = v[0]
+        print (result)
         return result
 
     def git_remote_add(self):
