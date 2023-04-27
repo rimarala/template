@@ -16,7 +16,7 @@ class PostGenProjectHook(object):
     git_my_token = "{{cookiecutter.token_repo}}" 
     head = {'Authorization': 'token {}'.format(git_my_token)}
     payload_create_repo = {"name": "{{cookiecutter.repo_name}}", "public": "true"}
-    print (payload_create_repo)
+#    print (payload_create_repo)
     remote_message_base = "Also see: https://{}/{}/{}"
     success_message_base = "\n\nSuccess! Your project was created here:\n{}\n{}\n"
     repo_dirpath = os.getcwd()
@@ -27,14 +27,15 @@ class PostGenProjectHook(object):
         repo_dirpath, "{% raw %}{{cookiecutter.repo_name}}{% endraw %}"
     )
     hooks_dirpath = os.path.join(repo_dirpath, "hooks")
-    print (repo_dirpath)
-    print (hooks_dirpath)
+#    print (repo_dirpath)
+#    print (hooks_dirpath)
 
     def __init__(self, *args, **kwargs):
         """
         Initializes the class instance.
         """
         self.result = self._get_cookiecutter_result()
+        print (result)
         self.git_ignore = self.result.get("git_ignore")
         self.make_dirs = self.result.get("make_dirs")
         self.remote_provider = "github.com"
@@ -61,6 +62,7 @@ class PostGenProjectHook(object):
         """
         Runs git init.
         """
+        print ("git_init")
         command = "git init"
         run(command)
 
@@ -69,6 +71,7 @@ class PostGenProjectHook(object):
         """
         Runs git add all.
         """
+        print ("git_add")
         command = "git add --all"
         run(command)
 
@@ -77,6 +80,7 @@ class PostGenProjectHook(object):
         """
         Runs git commit.
         """
+        print ("git_commit")
         command = "git commit -m \"Creation of a new Network Application {{cookiecutter.repo_name}}\""
         run(command)
 
