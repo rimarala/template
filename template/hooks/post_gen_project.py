@@ -150,8 +150,9 @@ class PostGenProjectHook(object):
         self.git_remote_add()
         self.git_push()
         self.git_checkout_evolved5g()
-        self.git_push_example()
-        self.git_push_example()        
+        self.git_push_evolved5g()
+        self.git_checkout_example()
+        self.git_push_example()           
 
     def run(self):
         """
