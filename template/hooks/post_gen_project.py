@@ -35,9 +35,9 @@ class PostGenProjectHook(object):
         Initializes the class instance.
         """
         self.result = self._get_cookiecutter_result()
-        print (self.result)
         self.git_ignore = self.result.get("git_ignore")
         self.make_dirs = self.result.get("make_dirs")
+        print (self.make_dirs)
         self.remote_provider = "github.com"
         self.repo_name = self.result.get("repo_name")
         self.remote_message = (
@@ -62,7 +62,6 @@ class PostGenProjectHook(object):
         """
         Runs git init.
         """
-        print ("git_init")
         command = "git init"
         run(command)
 
@@ -71,7 +70,6 @@ class PostGenProjectHook(object):
         """
         Runs git add all.
         """
-        print ("git_add")
         command = "git add --all"
         run(command)
 
