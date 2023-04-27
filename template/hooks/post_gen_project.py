@@ -35,7 +35,7 @@ class PostGenProjectHook(object):
         Initializes the class instance.
         """
         self.result = self._get_cookiecutter_result()
-        print (result)
+        print (self.result)
         self.git_ignore = self.result.get("git_ignore")
         self.make_dirs = self.result.get("make_dirs")
         self.remote_provider = "github.com"
