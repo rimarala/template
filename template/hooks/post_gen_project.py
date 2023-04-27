@@ -101,7 +101,7 @@ class PostGenProjectHook(object):
         """
         Adds the git remote origin url with included password.
         """
-        command = "git remote add origin git@github.com:EVOLVED-5G/{{cookiecutter.netapp_name}}.git"
+        command = "git remote add origin git@github.com:EVOLVED-5G/{{cookiecutter.repo_name}}.git"
         run(command)
 
     def git_push(self):
