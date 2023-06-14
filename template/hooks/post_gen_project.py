@@ -128,7 +128,7 @@ class PostGenProjectHook(object):
         """
         create new branch about master
         """
-        command = "git checkout --orphan -b example"
+        command = "git checkout --orphan example"
         run(command)
 
     def git_push_evolved5g(self):
