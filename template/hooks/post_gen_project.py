@@ -125,18 +125,11 @@ class PostGenProjectHook(object):
         command = "git push -u origin master"
         run(command)
 
-    def git_checkout_evolved5g(self):
+    def git_switch_evolved5g(self):
         """
         create new branch about master
         """
-        command = "git checkout -b evolved5g"
-        run(command)
-
-    def git_switch_example(self):
-        """
-        create new branch about master
-        """
-        command = "git switch --orphan example "
+        command = "git switch --orphan evolved5g"
         run(command)
 
     def git_push_evolved5g(self):
@@ -144,13 +137,6 @@ class PostGenProjectHook(object):
         Push branch evolved5g
         """
         command = "git push -u origin evolved5g"
-        run(command)
-
-    def git_push_example(self):
-        """
-        Push branch evolved5g
-        """
-        command = "git push -u origin example"
         run(command)
 
 
@@ -164,11 +150,9 @@ class PostGenProjectHook(object):
         self.git_create_remote_repo()
         self.git_remote_add()
         self.git_push()
-        self.git_checkout_evolved5g()
-        self.git_push_evolved5g()
-        self.git_switch_example()
+        self.git_switch_evolved5g()
         self.git_commit_orphan()
-        self.git_push_example()
+        self.git_push_evolved5g()
 
 
     def run(self):
