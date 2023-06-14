@@ -81,6 +81,14 @@ class PostGenProjectHook(object):
         command = "git commit -m \"Creation of a new Network Application {{cookiecutter.repo_name}}\""
         run(command)
 
+    def git_commit_orphan():
+        """
+        Runs git commit.
+        """
+        print ("git_commit")
+        command = "git commit --allow-empty -m \"Creation of a evolved5g branch to develop the Network Application {{cookiecutter.repo_name}}\""
+        run(command)
+
     @staticmethod
     def _get_cookiecutter_result():
         """
@@ -124,11 +132,11 @@ class PostGenProjectHook(object):
         command = "git checkout -b evolved5g"
         run(command)
 
-    def git_checkout_example(self):
+    def git_switch_example(self):
         """
         create new branch about master
         """
-        command = "git checkout --orphan example"
+        command = "git switch --orphan example"
         run(command)
 
     def git_push_evolved5g(self):
@@ -158,7 +166,8 @@ class PostGenProjectHook(object):
         self.git_push()
         self.git_checkout_evolved5g()
         self.git_push_evolved5g()
-        self.git_checkout_example()
+        self.git_switch_example()
+        self.git_commit_orphan()
         self.git_push_example()
 
 
