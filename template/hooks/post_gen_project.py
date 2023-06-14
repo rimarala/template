@@ -121,6 +121,13 @@ class PostGenProjectHook(object):
         """
         create new branch about master
         """
+        command = "git checkout -b evolved5g"
+        run(command)
+
+    def git_checkout_example(self):
+        """
+        create new branch about master
+        """
         command = "git checkout -b example"
         run(command)
 
@@ -128,15 +135,14 @@ class PostGenProjectHook(object):
         """
         Push branch evolved5g
         """
-        command = "git push -u origin example"
+        command = "git push -u origin evolved5g"
         run(command)
 
-
-    def git_rm_example(self):
+    def git_push_example(self):
         """
         Push branch evolved5g
         """
-        command = "git rm -r *"
+        command = "git push -u origin example"
         run(command)
 
 
@@ -152,12 +158,9 @@ class PostGenProjectHook(object):
         self.git_push()
         self.git_checkout_evolved5g()
         self.git_push_evolved5g()
-        #self.git_checkout_example()
-        #self.git_push_example()
-        #OUSH shit!!!!
-        #self.git_rm_example()
-        #self.git_commit()
-        #self.git_push_example()
+        self.git_checkout_example()
+        self.git_push_example()
+
 
     def run(self):
         """
