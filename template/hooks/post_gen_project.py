@@ -114,7 +114,7 @@ class PostGenProjectHook(object):
         """
         Pushes the git remote and sets as upstream.
         """
-        command = "git push -u origin evolved5g"
+        command = "git push -u origin master"
         run(command)
 
     def git_checkout_evolved5g(self):
