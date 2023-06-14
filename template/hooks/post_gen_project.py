@@ -85,8 +85,7 @@ class PostGenProjectHook(object):
         """
         Runs git commit.
         """
-        print ("git_commit")
-        command = "git commit --allow-empty -m \"Creation of a evolved5g branch to develop the Network Application {{cookiecutter.repo_name}}\""
+        command = "git commit --allow-empty -m \"Creation of a evolved5g branch to develop the Network Application\""
         run(command)
 
     @staticmethod
@@ -136,7 +135,7 @@ class PostGenProjectHook(object):
         """
         create new branch about master
         """
-        command = "git switch --orphan example"
+        command = "git switch --orphan example "
         run(command)
 
     def git_push_evolved5g(self):
