@@ -81,11 +81,12 @@ class PostGenProjectHook(object):
         command = "git commit -m \"Creation of a new Network Application {{cookiecutter.repo_name}}\""
         run(command)
 
+    @staticmethod
     def git_commit_orphan():
         """
         Runs git commit.
         """
-        command = "git commit --allow-empty -m \"Creation of a evolved5g branch to develop the Network Application\""
+        command = "git commit --allow-empty -m \"Creation of a evolved5g branch to develop the Network Application {{cookiecutter.repo_name}}\""
         run(command)
 
     @staticmethod
